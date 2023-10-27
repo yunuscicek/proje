@@ -2,5 +2,5 @@ from googletrans import Translator
 
 translator = Translator()
 
-translate = translator.translate("İyi akşamlar.", dest="english")
-print(translate.text)
+result = translator.translate("kapı")
+print(result.extra_data[1])
