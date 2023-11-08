@@ -2,5 +2,9 @@ from googletrans import Translator
 
 translator = Translator()
 
-result = translator.translate("kapı")
-print(result.extra_data[1])
+result = translator.translate("car", dest = "tr")
+dict = result.extra_data['parsed']
+
+
+print(dict)
+
