@@ -1,6 +1,10 @@
 from googletrans import Translator
 
 translator = Translator()
-result = translator.translate("train",dest="tr")
 
-print(result.extra_data['parts'])
+
+result = translator._parse_extra_data('train')
+
+print(result)
+
+
