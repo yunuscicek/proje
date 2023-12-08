@@ -5,15 +5,11 @@ translator = Translator()
 
 result = translator.translate('shift', dest="tr")
 
-# print(result.)
+#print(result.text)
 
 
-print(result.extra_data["parsed"][6][0][0][0][5][0][0])
-print(result.extra_data["parsed"][6][1][0][0][5][0][0])
-print(result.extra_data["parsed"][6][2][0][0][5][0][0])
-print(result.extra_data["parsed"][6][3][0][0][5][0][0])
-print(result.extra_data["parsed"][6][4][0][0][5][0][0])
-print(result.extra_data["parsed"][6][5][0][0][5][0][0])
-print(result.extra_data["parsed"][6][6][0][0][5][0][0])
-print(result.extra_data["parsed"][6][7][0][0][5][0][0])
-print(result.extra_data["parsed"][6][8][0][0][5][0][0])
+for i in range(1000):
+    try:
+        print(result.extra_data["parsed"][6][i][0][0][5][0][0])
+    except IndexError:
+        break

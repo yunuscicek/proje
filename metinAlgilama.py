@@ -12,5 +12,4 @@ def translate_clipboard():
     selected_text = pyperclip.paste()
     print(selected_text)
     
-
 keyboard.wait("esc")
