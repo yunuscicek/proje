@@ -1,8 +1,12 @@
 import requests
 from bs4 import BeautifulSoup as bs
+import time
 
 def CambridgeKelimeCeviri(text):
     
+    zamanBaslangic = time.time()
+
+    ceviri = ""
     url = "https://dictionary.cambridge.org/tr/sözlük/ingilizce/"
     url = f"{url}/{text}" 
 
@@ -10,13 +14,26 @@ def CambridgeKelimeCeviri(text):
     page = requests.get(url, headers= header)
     soup = bs(page.text, "html.parser")
     translation = soup.find_all('div', {'class':'ddef_h'})
+    
+    i = 1
+    
+    print("Cambridge: ")
+    print(time.time() - zamanBaslangic)
 
     if page.status_code == 200:   
-        
+         
         for result in translation:
-        
-            return(result.text)
+             
+            ceviri = ceviri + str(i) + ". "  
+
             
+
+            ceviri = ceviri + result.text + "\n"
+            i = i + 1
+        i = 1
+        return ceviri 
+
     else:
-        return 1
+
+         return 1
 
