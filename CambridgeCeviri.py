@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import time
 
-def CambridgeKelimeCeviri(text):
+def Ceviri(text):
     
     zamanBaslangic = time.time()
 
@@ -31,9 +31,9 @@ def CambridgeKelimeCeviri(text):
             ceviri = ceviri + result.text + "\n"
             i = i + 1
         i = 1
+        cambridge_ceviri = ceviri
         return ceviri 
 
     else:
-
-         return 1
+        return 1
 

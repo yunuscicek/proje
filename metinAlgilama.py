@@ -6,9 +6,15 @@ import googletranslate as gt
 import CambridgeCeviri as cc
 import LongmanCeviri as lc
 import time
-import myNB as NB
 
-keyboard.add_hotkey('alt+x', lambda: translate_clipboard())
+
+# keyboard.add_hotkey('alt+x', lambda: translate_clipboard())
+
+def on_key_release(e):
+    if e.name == 'alt' and keyboard.is_pressed('x'):  # Check if Alt and X keys are released
+        translate_clipboard()
+
+keyboard.on_release_key('alt', on_key_release)
 
 p = pk.Pencere()
 
@@ -18,7 +24,6 @@ def translate_clipboard():
     print("fonksiyona giriş: ")
     print(time.time() - zamanBaslangic)
 
-    time.sleep(0.25)
     pya.hotkey('ctrl', 'c')
     
     selected_text = pyperclip.paste()
@@ -27,18 +32,19 @@ def translate_clipboard():
     bosluk_sayisi = sum(1 for char in selected_text if char.isspace())
     
     print(time.time()- zamanBaslangic)
+    p.PencereOlustur(selected_text, (bosluk_sayisi + 1))
+    # if(bosluk_sayisi == 0):
+        
+    #     p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text),lc.LongmanKelimeCeviri(selected_text), (bosluk_sayisi + 1))
+        
+    # elif(bosluk_sayisi == 1):
+        
+    #     selected_text_tire = selected_text.replace(" ", degistirme_karakteri)
+    #     p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text_tire),lc.LongmanKelimeCeviri(selected_text_tire), (bosluk_sayisi + 1))
+        
+    # else:
 
-    if(bosluk_sayisi == 0):
-        
-        p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text),lc.LongmanKelimeCeviri(selected_text), (bosluk_sayisi + 1))
-        
-    elif(bosluk_sayisi == 1):
-        
-        selected_text_tire = selected_text.replace(" ", degistirme_karakteri)
-        p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text_tire),lc.LongmanKelimeCeviri(selected_text_tire), (bosluk_sayisi + 1))
-        
-    else:
-
-        p.PencereOlustur(gt.GoogleTranslateCumleCeviri(selected_text), None, None, (bosluk_sayisi + 1))
+    #     p.PencereOlustur(gt.GoogleTranslateCumleCeviri(selected_text), None, None, (bosluk_sayisi + 1))
     
 keyboard.wait("esc")
+

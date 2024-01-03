@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import time
 
-def LongmanKelimeCeviri(text):
+def Ceviri(text):
     
     zamanBaslangic = time.time()
 
@@ -37,9 +37,9 @@ def LongmanKelimeCeviri(text):
             ceviri = ceviri + result.text + "\n"
             i = i + 1
         i = 1
+        longman_translated = ceviri
         return ceviri 
 
     else:
-
         return 1
 

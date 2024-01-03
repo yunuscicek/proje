@@ -3,8 +3,7 @@ import time
 
 translator = Translator()
 
-
-def GoogleTranslateKelimeCeviri(kelime):
+def Ceviri(kelime):
     zamanBaslangic = time.time()
     ceviri = ""
     result = translator.translate(kelime, dest="tr")
@@ -21,7 +20,7 @@ def GoogleTranslateKelimeCeviri(kelime):
         except IndexError:
 
             break
-
+    
     return ceviri
 
 
