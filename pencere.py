@@ -1,8 +1,8 @@
 import pyautogui as pyag
 from tkinter import *
 from tkinter import ttk
+import myNB as NB
 import time
-from tkhtmlview import HTMLText
 
 class Pencere:
 
@@ -17,7 +17,7 @@ class Pencere:
         pencere = Tk()
         pencere.title("Çeviri")
         pencere.geometry(f"+{x}+{y}")
-        sekmeKontrol = ttk.Notebook(pencere) 
+        sekmeKontrol = NB.myNotebook(pencere) 
   
         sekme1 = ttk.Frame(sekmeKontrol) 
         sekme2 = ttk.Frame(sekmeKontrol) 
@@ -28,18 +28,15 @@ class Pencere:
         sekmeKontrol.add(sekme3, text ='Longman Dict.') 
         sekmeKontrol.pack(expand=1, fill="both")
         
-        text = HTMLText(pencere, width = 60, height = 20, font = ("Segoe UI",11))
+        text = Text(pencere, width = 60, height = 20, font = ("Segoe UI",11))
         text.pack(padx=5, pady=5)
         text.config(state=DISABLED)
 
-        
         print("pencere fonksiyon: ")
         print(time.time() - zamanBaslangic)
 
         def on_tab_change(event):
             
-            
-
             current_tab = sekmeKontrol.index(sekmeKontrol.select())
             
             if(current_tab == 0):
