@@ -4,6 +4,8 @@ import time
 
 def Ceviri(text):
     
+    text = text.replace(" ","-")
+
     zamanBaslangic = time.time()
 
     ceviri = ""

@@ -3,12 +3,9 @@ from tkinter import *
 from tkinter import ttk
 import time
 import threading
-
 import googletranslate as gt
 import CambridgeCeviri as cc
 import LongmanCeviri as lc
-
-
 
 class Pencere:
 
@@ -24,7 +21,9 @@ class Pencere:
         pencere.title("Çeviri")
         pencere.geometry(f"+{x}+{y}")
         sekmeKontrol = ttk.Notebook(pencere) 
+        
         pencere.attributes('-topmost', not pencere.attributes('-topmost'))
+        
         sekme1 = ttk.Frame(sekmeKontrol) 
         sekme2 = ttk.Frame(sekmeKontrol) 
         sekme3 = ttk.Frame(sekmeKontrol) 
@@ -103,9 +102,6 @@ class Pencere:
                     return
 
         sekmeKontrol.bind("<<NotebookTabChanged>>", on_tab_change)
-        # gtranslated.trace_add("write", on_tab_change)
-        # ctranslated.trace_add("write", on_tab_change)
-        # ltranslated.trace_add("write", on_tab_change)
 
         pencere.mainloop()
     

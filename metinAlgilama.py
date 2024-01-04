@@ -7,9 +7,6 @@ import CambridgeCeviri as cc
 import LongmanCeviri as lc
 import time
 
-
-# keyboard.add_hotkey('alt+x', lambda: translate_clipboard())
-
 def on_key_release(e):
     if e.name == 'alt' and keyboard.is_pressed('x'):  # Check if Alt and X keys are released
         translate_clipboard()
@@ -33,18 +30,6 @@ def translate_clipboard():
     
     print(time.time()- zamanBaslangic)
     p.PencereOlustur(selected_text, (bosluk_sayisi + 1))
-    # if(bosluk_sayisi == 0):
-        
-    #     p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text),lc.LongmanKelimeCeviri(selected_text), (bosluk_sayisi + 1))
-        
-    # elif(bosluk_sayisi == 1):
-        
-    #     selected_text_tire = selected_text.replace(" ", degistirme_karakteri)
-    #     p.PencereOlustur(gt.GoogleTranslateKelimeCeviri(selected_text),cc.CambridgeKelimeCeviri(selected_text_tire),lc.LongmanKelimeCeviri(selected_text_tire), (bosluk_sayisi + 1))
-        
-    # else:
-
-    #     p.PencereOlustur(gt.GoogleTranslateCumleCeviri(selected_text), None, None, (bosluk_sayisi + 1))
     
 keyboard.wait("esc")
 
