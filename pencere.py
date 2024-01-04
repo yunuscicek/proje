@@ -1,7 +1,6 @@
 import pyautogui as pyag
 from tkinter import *
 from tkinter import ttk
-import time
 import threading
 import googletranslate as gt
 import CambridgeCeviri as cc
@@ -11,10 +10,6 @@ class Pencere:
 
     def PencereOlustur(self, selected_text, kelimeSayisi):
         
-        zamanBaslangic = time.time()
-        print("pencere baslangic")
-        print(time.time() - zamanBaslangic)
-
         x,y = pyag.position()
 
         pencere = Tk()
@@ -36,8 +31,6 @@ class Pencere:
         text = Text(pencere, width = 60, height = 20, font = ("Segoe UI",11))
         text.pack(padx=5, pady=5)
         text.config(state=DISABLED)
-        print("pencere fonksiyon: ")
-        print(time.time() - zamanBaslangic)
 
         gtranslated = StringVar()
         ctranslated = StringVar()
@@ -82,7 +75,7 @@ class Pencere:
                 text.config(state=NORMAL)
                 text.delete("1.0", "end")
                 
-                if(kelimeSayisi<3):
+                if(kelimeSayisi<=3):
                     text.insert(INSERT, ctranslated.get())
                     text.config(state=DISABLED)
                 else:
@@ -94,7 +87,7 @@ class Pencere:
                 text.config(state=NORMAL)
                 text.delete("1.0", "end")
                 
-                if(kelimeSayisi<3):
+                if(kelimeSayisi<=3):
                     text.insert(INSERT, ltranslated.get())
                     text.config(state=DISABLED)
                 else:

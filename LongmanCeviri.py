@@ -1,12 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as bs
-import time
 
 def Ceviri(text):
     
     text = text.replace(" ","-")
-
-    zamanBaslangic = time.time()
 
     ceviri = ""
     url = "https://www.ldoceonline.com/dictionary"
@@ -18,9 +15,6 @@ def Ceviri(text):
     translation = soup.find_all('span', {'class':'DEF'})
     signpost = soup.find_all('span', {'class': 'SIGNPOST'})
     i = 1
-
-    print("Longman: ")
-    print(time.time() - zamanBaslangic)
 
     if page.status_code == 200:   
         
@@ -38,10 +32,12 @@ def Ceviri(text):
 
             ceviri = ceviri + result.text + "\n"
             i = i + 1
+
         i = 1
         longman_translated = ceviri
         return ceviri 
 
     else:
+        
         return 1
 

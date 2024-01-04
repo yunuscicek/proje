@@ -1,17 +1,14 @@
 from googletrans import Translator
-import time
 
 translator = Translator()
 
 def Ceviri(kelime):
-    zamanBaslangic = time.time()
+
     ceviri = ""
     result = translator.translate(kelime, dest="tr")
     ceviri = result.text + "\n"
-    print("Google: ")
-    print(time.time() - zamanBaslangic)
-    
-    for i in range(1000):
+
+    for i in range(100):
        
         try:
 
@@ -22,10 +19,3 @@ def Ceviri(kelime):
             break
     
     return ceviri
-
-
-def GoogleTranslateCumleCeviri(cumle):
-    
-    result = translator.translate(cumle, dest="tr")
-    
-    return result.text

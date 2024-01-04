@@ -1,12 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as bs
-import time
 
 def Ceviri(text):
     
     text = text.replace(" ","-")
-
-    zamanBaslangic = time.time()
 
     ceviri = ""
     url = "https://dictionary.cambridge.org/tr/sözlük/ingilizce/"
@@ -19,23 +16,19 @@ def Ceviri(text):
     
     i = 1
     
-    print("Cambridge: ")
-    print(time.time() - zamanBaslangic)
-
     if page.status_code == 200:   
          
         for result in translation:
              
             ceviri = ceviri + str(i) + ". "  
-
-            
-
             ceviri = ceviri + result.text + "\n"
             i = i + 1
+
         i = 1
         cambridge_ceviri = ceviri
         return ceviri 
 
     else:
+
         return 1
 
