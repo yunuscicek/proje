@@ -17,9 +17,9 @@ def translate_clipboard():
     
     selected_text = pyperclip.paste()
     selected_text = selected_text.lower()
+    selected_text = selected_text.strip()
     bosluk_sayisi = sum(1 for char in selected_text if char.isspace())
     
     p.PencereOlustur(selected_text, (bosluk_sayisi + 1))
     
 keyboard.wait("esc")
-

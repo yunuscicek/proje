@@ -11,10 +11,12 @@ class Pencere:
     def PencereOlustur(self, selected_text, kelimeSayisi):
         
         x,y = pyag.position()
-
+    
         pencere = Tk()
         pencere.title("Çeviri")
         pencere.geometry(f"+{x}+{y}")
+        pencere.iconbitmap("ico.ico")
+
         sekmeKontrol = ttk.Notebook(pencere) 
         
         pencere.attributes('-topmost', not pencere.attributes('-topmost'))
@@ -93,8 +95,7 @@ class Pencere:
                 else:
 
                     return
-
+        
         sekmeKontrol.bind("<<NotebookTabChanged>>", on_tab_change)
-
         pencere.mainloop()
     
