@@ -2,12 +2,25 @@ import keyboard
 import pyperclip
 import pyautogui as pya
 import pencere as pk
+import json
+
+with open ("config.json","r") as ff:
+
+    data = json.load(ff)
+
+for config in data["config"]:
+    
+    bind = config["bind"]
+
+parts = bind.split("-")
+parts = [part.strip() for part in parts]
+x1, x2 = parts
 
 def on_key_release(e):
-    if e.name == 'alt' and keyboard.is_pressed('x'):  # Check if Alt and X keys are released
+    if e.name == x1 and keyboard.is_pressed(x2):
         translate_clipboard()
 
-keyboard.on_release_key('alt', on_key_release)
+keyboard.on_release_key(x1, on_key_release)
 
 p = pk.Pencere()
 

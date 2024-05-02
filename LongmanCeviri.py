@@ -11,10 +11,15 @@ def Ceviri(text):
     url = f"{url}/{text}" 
     
     header = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'}
+    
     try:
+
         page = requests.get(url, headers= header)
+        
     except:
+
         return "Error: Connection Failed"
+    
     soup = bs(page.text, "html.parser")
     translation = soup.find_all('span', {'class':'DEF'})
     signpost = soup.find_all('span', {'class': 'SIGNPOST'})
@@ -38,7 +43,6 @@ def Ceviri(text):
             i = i + 1
 
         i = 1
-        longman_translated = ceviri
         return ceviri 
 
     else:
