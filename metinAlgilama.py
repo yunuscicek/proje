@@ -26,7 +26,7 @@ p = pk.Pencere()
 
 def translate_clipboard():
 
-    pya.hotkey('ctrl', 'c')
+    pya.hotkey("ctrl", "c")
     
     selected_text = pyperclip.paste()
     selected_text = selected_text.lower()

@@ -30,7 +30,7 @@ def AyarlarPencere():
     pencere.resizable(False,False)
     pencere.iconbitmap("./icons/settings.png")
     pencere.eval("tk::PlaceWindow . center")
-    pencere.attributes('-topmost', not pencere.attributes('-topmost'))
+    pencere.attributes("-topmost", not pencere.attributes("-topmost"))
 
     with open("config.json", "r") as ff:
             

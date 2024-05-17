@@ -30,7 +30,7 @@ class Pencere:
 
         sekmeKontrol = ttk.Notebook(pencere) 
         
-        pencere.attributes('-topmost', not pencere.attributes('-topmost'))
+        pencere.attributes("-topmost", not pencere.attributes("-topmost"))
         
         sekme1 = ttk.Frame(sekmeKontrol) 
         sekme2 = ttk.Frame(sekmeKontrol) 
