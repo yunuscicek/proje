@@ -15,7 +15,7 @@ for config in data["config"]:
 parts = bind.split("-")
 parts = [part.strip() for part in parts]
 x1, x2 = parts
-
+print(x1,x2)
 def on_key_release(e):
     if e.name == x1 and keyboard.is_pressed(x2):
         translate_clipboard()
