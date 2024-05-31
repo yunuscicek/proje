@@ -61,7 +61,7 @@ def AyarlarPencere():
     label3 = Label(pencere, text = "Kısayol tuşu")
     label3.pack(anchor = NW, expand = TRUE)
 
-    e3 = ttk.Combobox(pencere, values = ["alt-x", "alt-z"])
+    e3 = ttk.Combobox(pencere, values = ["alt-x", "alt-z","alt-s","alt-c"])
     e3.insert(0,bind)
     e3.pack(anchor = NW, expand = TRUE)
     

@@ -14,10 +14,6 @@ def KaydetFonk(font_size,font_type,bind):
         config["size"] = font_size  
         config["font"] = font_type
         config["bind"] = bind
-
-    print(config["size"])
-    print(config["font"])
-    print(config["bind"])
     
     with open ("config.json", "w") as ff:
         
