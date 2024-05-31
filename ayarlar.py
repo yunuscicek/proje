@@ -6,7 +6,6 @@ from tkinter import messagebox
 import ayarlarKaydet as ak
 
 def AyarlarPencere():
-    
         
     def degerKaydet():
             

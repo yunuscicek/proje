@@ -58,12 +58,17 @@ class Pencere:
         ltranslated.set("Loading...")
 
         def google(text):
+
             gtranslated.set(gt.Ceviri(text))
             update()
+
         def cbridge(text):
+
             ctranslated.set(cc.Ceviri(text))
             update()
+
         def lman(text):
+
             ltranslated.set(lc.Ceviri(text))
             update()
 
@@ -75,9 +80,11 @@ class Pencere:
         threadlc.start()
 
         def on_tab_change(event):
+
             update()
 
         def update():
+
             current_tab = sekmeKontrol.index(sekmeKontrol.select())
             
             if(current_tab == 0):
@@ -93,8 +100,10 @@ class Pencere:
                 text.delete("1.0", "end")
                 
                 if(kelimeSayisi <= 3):
+
                     text.insert(INSERT, ctranslated.get())
                     text.config(state = DISABLED)
+
                 else:
 
                     return
@@ -105,8 +114,10 @@ class Pencere:
                 text.delete("1.0", "end")
                 
                 if(kelimeSayisi<=3):
+
                     text.insert(INSERT, ltranslated.get())
                     text.config(state = DISABLED)
+                    
                 else:
 
                     return

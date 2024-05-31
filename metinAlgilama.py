@@ -15,16 +15,22 @@ for config in data["config"]:
 parts = bind.split("-")
 parts = [part.strip() for part in parts]
 x1, x2 = parts
-print(x1,x2)
-def on_key_release(e):
-    if e.name == x1 and keyboard.is_pressed(x2):
+
+def on_key_release1(e):
+    
+    if e.name == x2 and keyboard.is_pressed(x1):
+        
         translate_clipboard()
 
-keyboard.on_release_key(x1, on_key_release)
+keyboard.on_press_key(x2, on_key_release1)
 
 p = pk.Pencere()
 
 def translate_clipboard():
+    
+    if keyboard.is_pressed('alt'):
+
+        keyboard.release('alt')
 
     pya.hotkey("ctrl", "c")
     
@@ -34,5 +40,6 @@ def translate_clipboard():
     bosluk_sayisi = sum(1 for char in selected_text if char.isspace())
     
     p.PencereOlustur(selected_text, (bosluk_sayisi + 1))
-    
+      
 keyboard.wait("esc")
+
